@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>hhhh</title>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function() {
+      emailjs.init("EMFYEIUnEB4gOftIv"); 
+    })();
+  </script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      background-color: #ffccd5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+    }
+    #heart {
+      font-size: 50px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    #heart:hover {
+      transform: scale(1.2);
+    }
+    img {
+      width: 200px;
+      height: auto;
+      margin: 20px 0;
+      display: none;
+    }
+    .btn-container {
+      display: none;
+      gap: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+    .yes-btn {
+      background-color: #ff4d6d;
+      color: white;
+    }
+    .no-btn {
+      background-color: #6c757d;
+      color: white;
+    }
+    .yes-btn:hover {
+      background-color: #e63950;
+    }
+    .no-btn:hover {
+      background-color: #495057;
+    }
+    #message-box {
+      display: none;
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: white;
+      padding: 40px;
+      border-radius: 20px;
+      width: 80%;
+      max-width: 700px;
+      font-size: 18px;
+      text-align: center;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      z-index: 9999;
+    }
+    #message-box img {
+      width: 150px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="heart">🌷</div>
+  <audio id="bg-music" src="prettyeyes.mp3"></audio>
+  <img id="gif" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExaTk5aTIyYTh4MmRobnpuOW0yNHh1OTJ5MzEwZndxa28zN3FqaXJtcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/qhywUXKo6q2xYx9HMf/giphy.gif" alt="Cute Valentine GIF">
+  
+  <div class="btn-container" id="btns">
+      <button class="yes-btn" onclick="sayYes()">Yes</button>
+      <button class="no-btn" onclick="sayNo()">No</button>
+  </div>
+
+  <div id="message-box">
+    <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="Cat GIF">
+    <p>This is your official invitation to be my Valentine's date. 🌷</p> <br> &nbsp;
+    <p>I know we're too busy with our practicum and there's little time on that day, but still, I'd be happy to see you, even if it's just a few hours. I'd like to spend this day with you, hehe. Let's have dinner that day. 😊</p>
+  </div>
+
+  <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+  <script>
+    let messages = [
+      "Heeyyy...",
+      "Ummmm",
+      "Hiiii",
+      "Hanah",
+      "Madel??",
+      "Jane???",
+      "Kidding 😆",
+      "Soooooooooooooo",
+      "I just wanna ask...",
+      "Would you like to go on a date with me?",
+      "If you're free this coming Feb 14...",
+      "Then...",
+      "Will you be my Valentine? ❤️"
+    ];
+
+    let heart = document.getElementById("heart");
+    let gif = document.getElementById("gif");
+    let btns = document.getElementById("btns");
+    let music = document.getElementById("bg-music");
+    let noBtn = document.querySelector(".no-btn");
+    let noClickCount = 0;
+    let started = false; 
+
+    heart.addEventListener("click", function() {
+      if (!started) {
+        started = true; 
+        if (music.paused) {
+          music.play();
+        }
+
+        let typewriter = new Typewriter(heart, {
+          loop: false,
+          delay: 75,
+          deleteSpeed: 50,
+          cursor: "|",
+          autoStart: true
+        });
+
+        typewriter.deleteAll();
+
+        messages.forEach((message, index) => {
+          typewriter.typeString(message).pauseFor(1000);
+          if (index !== messages.length - 1) {
+            typewriter.deleteAll();
+          }
+        });
+
+        typewriter.callFunction(() => {
+          gif.style.display = "block";
+          btns.style.display = "flex";
+        }).start();
+      }
+    });
+
+    function sayYes() {
+      const templateParams = {
+        to_email: "melsetnavrec@gmail.com",  
+        message: "The 'Yes' button was clicked!"
+      };
+
+      emailjs.send("service_udcvv7k", "template_stjy8gp", templateParams)
+        .then(function(response) {
+          console.log("SUCCESS!", response);
+        }, function(error) {
+          console.error("FAILED...", error);
+        });
+
+      let messageBox = document.getElementById("message-box");
+      messageBox.style.display = "block"; // Show the floating message with padding
+    }
+
+    function sayNo() {
+      noClickCount++;
+
+      if (noClickCount === 1) {
+        noBtn.textContent = "are you sure?";
+      } else if (noClickCount === 2) {
+        noBtn.textContent = "nooo jud?";
+      } else if (noClickCount === 3) {
+        noBtn.textContent = "sure naka sa NO?";
+      } else if (noClickCount === 4) {
+        noBtn.textContent = "final nanaa?";
+      } else if (noClickCount === 5) {
+        noBtn.textContent = "ga nod na ang cat oh then NO gihapon ka";
+      } else if (noClickCount === 6) {
+        noBtn.textContent = "aw sorry pero walay No sa choices";
+      } else if (noClickCount === 7) {
+        noBtn.textContent = "Yes";
+        noBtn.classList.remove("no-btn");
+        noBtn.classList.add("yes-btn");
+        noBtn.setAttribute("onclick", "sayYes()");
+      }
+    }
+  </script>
+
+</body>
+</html>
