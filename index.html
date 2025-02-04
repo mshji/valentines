@@ -87,26 +87,6 @@
       width: 120px;
       margin-bottom: 15px;
     }
-    @media (max-width: 480px) {
-      #heart {
-        font-size: 40px;
-      }
-      img {
-        width: 150px;
-      }
-      button {
-        padding: 6px 12px;
-        font-size: 14px;
-      }
-      #message-box {
-        width: 95%;
-        padding: 20px;
-        font-size: 13px;
-      }
-      #message-box img {
-        width: 100px;
-      }
-    }
   </style>
 </head>
 <body>
@@ -122,28 +102,33 @@
 
   <div id="message-box">
     <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="Cat GIF">
-    <p>This is your official invitation to be my Valentine's date. </p> <br> &nbsp;
-    <p>I know we're too busy with practicum and have little time on that day, but I'd still be happy to see you, even just for a few hours. I'd like to spend this day with you. Let's have dinner that day. 😊</p>
+    <p>This is your official invitation to be my Valentine's date. </p> <br> &nbsp; 
+    <p>I know we're too busy with our practicum and have little time on that day, but I'd still be happy to see you, even just for a few hours. I'd like to spend this day with you. Let's have dinner that day. If not, then we can move the day na lang, right? 😊</p>
   </div>
 
   <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
   <script>
     let messages = [
-      "Heeyyy...",
-      "Ummmm",
-      "Hiiii",
-      "Hanah",
-      "Jane??",
-      "Madel???",
-      "Kidding 😆",
-      "Soooooooooooooo",
-      "I just wanna ask...",
+      "Heeeeeyyy",
+      "Hanah,",
+      "Madel,",
+      "Miss cold og treatment nako,",
+      "kidding...",
+      "Anyways, I just want to clear things up.",
+      "I want you to know",
+      "that I'm really, really sure about you",
+      "like 100% all in nani.",
+      "Maybe di gihapon ka mo tuo nako?",
+      "Or trip sad guro nimong di motuo?",
+      "Anyways, I just wanna ask...",
       "Would you like to go on a date with me?",
-      "If you're free this coming Feb 14...",
-      "Then...",
-      "Will you be my Valentine? ❤️"
+      "I mean, dapat agree ka oy. ",
+      "So, if you're free this coming Feb 14",
+      "thennn",
+      "Will you be my"
     ];
 
+    let finalMessage = " Valentine? ❤️";
     let heart = document.getElementById("heart");
     let gif = document.getElementById("gif");
     let btns = document.getElementById("btns");
@@ -179,6 +164,10 @@
         typewriter.callFunction(() => {
           gif.style.display = "block";
           btns.style.display = "flex";
+
+          setTimeout(() => {
+            typewriter.typeString(finalMessage).start();
+          }, 600);
         }).start();
       }
     });
