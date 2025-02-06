@@ -7,7 +7,7 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script type="text/javascript">
     (function() {
-      emailjs.init("EMFYEIUnEB4gOftIv"); 
+      emailjs.init("dcVn_9a8Q0kZW-4pM"); 
     })();
   </script>
   <style>
@@ -109,22 +109,19 @@
   <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
   <script>
     let messages = [
-      "Heeeeeyyy",
-      "Hanah,",
-      "Madel,",
-      "Miss cold og treatment nako,",
+      "Oh heyyy",
+      "Hanah",
+      "Madel",
+      "Honeybunchsugarplum? HAHAHAHA jk",
+      "Since you're here then curious ka",
+      "Sa akong mga questions for you",
+      "right?",
+      "Ay next time nalang guro oy HAHAHAH",
       "kidding...",
-      "Anyways, I just want to clear things up.",
-      "I want you to know",
-      "that I'm really, really sure about you",
-      "like 100% all in nani.",
-      "Maybe di gihapon ka mo tuo nako?",
-      "Or trip sad guro nimong di motuo?",
-      "Anyways, I just wanna ask...",
-      "Would you like to go on a date with me?",
-      "I mean, dapat agree ka oy. ",
-      "So, if you're free this coming Feb 14",
-      "thennn",
+      "So here, I just wanna ask",
+      "ummm",
+      "Are you free this coming Feb 14?",
+      "If so, then",
       "Will you be my"
     ];
 
@@ -174,11 +171,11 @@
 
     function sayYes() {
       const templateParams = {
-        to_email: "melsetnavrec@gmail.com",  
+        to_email: "ryoukintekai21@gmail.com",  
         message: "The 'Yes' button was clicked!"
       };
 
-      emailjs.send("service_udcvv7k", "template_stjy8gp", templateParams)
+      emailjs.send("service_re1w5pb", "template_sawtvgh", templateParams)
         .then(function(response) {
           console.log("SUCCESS!", response);
         }, function(error) {
@@ -195,15 +192,15 @@
       if (noClickCount === 1) {
         noBtn.textContent = "are you sure?";
       } else if (noClickCount === 2) {
-        noBtn.textContent = "nooo jud?";
+        noBtn.textContent = "nooo na jud?";
       } else if (noClickCount === 3) {
         noBtn.textContent = "sure naka sa NO?";
       } else if (noClickCount === 4) {
-        noBtn.textContent = "final nanaa?";
+        noBtn.textContent = "final nana?";
       } else if (noClickCount === 5) {
-        noBtn.textContent = "ga nod na ang cat oh then NO gihapon ka";
+        noBtn.textContent = "ma sad jud ko if No";
       } else if (noClickCount === 6) {
-        noBtn.textContent = "aw sorry pero walay No sa choices";
+        noBtn.textContent = "ga nod nang cat oh but No gihapon?";
       } else if (noClickCount === 7) {
         noBtn.textContent = "Yes";
         noBtn.classList.remove("no-btn");
